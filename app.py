@@ -21,9 +21,7 @@ app.secret_key = "task_manager_secret"
 DB_PATH = "inter_team_task.db"
 
 
-# ---------------------------------------------------
-# DATABASE INITIALIZATION
-# ---------------------------------------------------
+#Database Initialization
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     conn.execute("""
