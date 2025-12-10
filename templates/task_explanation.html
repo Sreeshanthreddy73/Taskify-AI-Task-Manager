@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="mb-3"><i class="bi bi-chat-left-dots"></i> Task Explanation</h2>
+<a href="/task/{{ task.id }}" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left"></i> Back</a>
+
+<div class="card p-3 shadow-sm">
+  <h5>{{ task.task }}</h5>
+  <p class="mt-2">{{ explanation }}</p>
+</div>
+
+{% endblock %}

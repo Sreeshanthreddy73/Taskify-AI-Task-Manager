@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="mb-4">
+    <i class="bi bi-speedometer2 text-primary"></i>
+    Dashboard
+</h2>
+
+<div class="row g-4">
+
+    <!-- Total Tasks -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 text-center">
+            <h5 class="text-muted">Total Tasks</h5>
+            <h2 class="fw-bold">{{ total }}</h2>
+        </div>
+    </div>
+
+    <!-- To-Do -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 text-center">
+            <h5 class="text-warning">To-Do</h5>
+            <h2 class="fw-bold text-warning">{{ todo }}</h2>
+        </div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 text-center">
+            <h5 class="text-primary">In Progress</h5>
+            <h2 class="fw-bold text-primary">{{ inprog }}</h2>
+        </div>
+    </div>
+
+    <!-- Done -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 text-center">
+            <h5 class="text-success">Done</h5>
+            <h2 class="fw-bold text-success">{{ done }}</h2>
+        </div>
+    </div>
+</div>
+
+
+<!-- ACTION BUTTONS -->
+<div class="mt-4 d-flex gap-3">
+    <a href="/add-task" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Add Task
+    </a>
+
+    <a href="/ai-suggestions" class="btn btn-warning">
+        <i class="bi bi-lightbulb"></i> AI Suggestions
+    </a>
+
+    <a href="/delay-prediction" class="btn btn-info">
+        <i class="bi bi-clock-history"></i> Delay Prediction
+    </a>
+
+    <a href="/task-list" class="btn btn-dark">
+        <i class="bi bi-list-check"></i> View All Tasks
+    </a>
+</div>
+
+
+<!-- PIE CHART -->
+<div class="card p-4 mt-5 shadow-sm" style="width: 500px; margin:auto;">
+    <canvas id="taskChart"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('taskChart');
+
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['To-Do', 'In Progress', 'Done'],
+        datasets: [{
+            data: [{{ todo }}, {{ inprog }}, {{ done }}],
+            backgroundColor: ['#f4c430', '#0dcaf0', '#28a745']
+        }]
+    }
+});
+</script>
+
+{% endblock %}

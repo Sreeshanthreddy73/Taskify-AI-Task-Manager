@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="mb-4">
+  <i class="bi bi-card-list text-primary"></i> All Tasks
+</h2>
+
+<div class="d-flex justify-content-between mb-3">
+  <a href="/add-task" class="btn btn-primary">
+    <i class="bi bi-plus-circle"></i> Add Task
+  </a>
+
+  <a href="/" class="btn btn-secondary">
+    <i class="bi bi-arrow-left"></i> Back to Dashboard
+  </a>
+
+  <a href="/export-csv" class="btn btn-success">
+    <i class="bi bi-download"></i> Export CSV
+  </a>
+</div>
+
+<div class="card p-3 shadow-sm">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Task</th>
+          <th>Assigned</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for t in tasks %}
+        <tr>
+          <td>{{ t.id }}</td>
+          <td>{{ t.task }}</td>
+          <td>{{ t.assigned_to }}</td>
+
+          <td>
+            {% if t.priority == "High" %}
+              <span class="badge bg-danger">High</span>
+            {% elif t.priority == "Medium" %}
+              <span class="badge bg-warning text-dark">Medium</span>
+            {% else %}
+              <span class="badge bg-info">Low</span>
+            {% endif %}
+          </td>
+
+          <td>
+            <span class="badge 
+                {% if t.status == 'Done' %} bg-success
+                {% elif t.status == 'In Progress' %} bg-primary
+                {% else %} bg-secondary {% endif %}">
+                {{ t.status }}
+            </span>
+          </td>
+
+          <td>
+
+            <!-- VIEW TASK -->
+            <a href="/task/{{ t.id }}" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-eye"></i>
+            </a>
+
+            <!-- MOVE TO IN PROGRESS -->
+            <a href="/update-status/{{ t.id }}/In Progress"
+               class="btn btn-sm btn-outline-warning">
+               <i class="bi bi-play-fill"></i>
+            </a>
+
+            <!-- MARK AS DONE -->
+            <a href="/update-status/{{ t.id }}/Done"
+               class="btn btn-sm btn-outline-success">
+               <i class="bi bi-check-lg"></i>
+            </a>
+
+            <!-- DELETE -->
+            <a href="/delete-task/{{ t.id }}"
+               class="btn btn-sm btn-outline-danger">
+               <i class="bi bi-trash"></i>
+            </a>
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+{% endblock %}

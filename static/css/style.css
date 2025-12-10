@@ -1,0 +1,64 @@
+/* GLOBAL STYLING */
+body {
+    background: #f3f6fc;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background: #1b263b;
+}
+
+/* Smooth fade animation */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card styling */
+.card {
+    border-radius: 14px;
+    border: none;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Input group */
+input, select {
+    border-radius: 8px !important;
+}
+
+/* Task list rows */
+.table-hover tbody tr:hover {
+    background-color: #eef4ff;
+    transition: 0.25s;
+}
+
+/* Section titles */
+h2, h4 {
+    font-weight: 600;
+}
+
+/* Subtask bullets */
+.list-group-item {
+    border-radius: 10px !important;
+    margin-bottom: 8px;
+}

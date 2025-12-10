@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="mb-3"><i class="bi bi-clock-history"></i> AI Delay Prediction</h2>
+<a href="/" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left"></i> Back</a>
+
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card p-3 shadow-sm">
+      <h6 class="mb-1">To-Do</h6>
+      <h3 class="mb-0">{{ todo }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3 shadow-sm">
+      <h6 class="mb-1">In Progress</h6>
+      <h3 class="mb-0">{{ progress }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3 shadow-sm">
+      <h6 class="mb-1">Done</h6>
+      <h3 class="mb-0">{{ done }}</h3>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<!-- PIE CHART (small) -->
+<div class="card p-3 shadow-sm mb-4" style="max-width:480px; margin:auto;">
+  <h6 class="text-center mb-2">Task Status Distribution</h6>
+  <canvas id="statusChart" style="max-height:220px;"></canvas>
+</div>
+
+<!-- AI Predictions Table -->
+<div class="card p-3 shadow-sm">
+  <h5 class="mb-3">Task Delay Predictions</h5>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Task</th>
+          <th>Assigned To</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>AI Prediction</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in predictions %}
+        <tr>
+          <td>{{ p.task }}</td>
+          <td>{{ p.assigned_to }}</td>
+          <td>{{ p.priority }}</td>
+          <td>{{ p.status }}</td>
+          <td style="white-space:normal;">{{ p.prediction }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('statusChart');
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['To-Do', 'In Progress', 'Done'],
+      datasets: [{
+        label: 'Task Status',
+        data: [{{ todo }}, {{ progress }}, {{ done }}],
+        backgroundColor: ['#ffcb3b', '#17a2b8', '#28a745']
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom' }
+      }
+    }
+  });
+</script>
+
+{% endblock %}
