@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Member Login</h2>
+
+<form method="POST" class="card p-4 shadow-sm">
+    <label class="form-label">Username</label>
+    <input name="username" class="form-control" required>
+
+    <label class="form-label mt-3">Password</label>
+    <input name="password" type="password" class="form-control" required>
+
+    <button class="btn btn-primary mt-4 w-100">Login</button>
+</form>
+
+<a href="/member-join" class="btn btn-link mt-3">Join a Team</a>
+
+{% endblock %}

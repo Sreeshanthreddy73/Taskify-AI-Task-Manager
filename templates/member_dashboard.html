@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Member Dashboard</h2>
+
+<a href="/ai-chat" class="btn btn-warning mb-3">AI Assistant</a>
+
+<h4>Your Tasks</h4>
+
+<table class="table table-bordered">
+<tr>
+    <th>Task</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for t in tasks %}
+<tr>
+    <td>{{ t.task }}</td>
+    <td>{{ t.status }}</td>
+    <td>
+        <a href="/task/{{t.id}}" class="btn btn-sm btn-dark">View</a>
+        <a href="/submit/{{t.id}}" class="btn btn-sm btn-success">Submit Link</a>
+        <a href="/member-mark-done/{{t.id}}" class="btn btn-sm btn-primary">Mark Done</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

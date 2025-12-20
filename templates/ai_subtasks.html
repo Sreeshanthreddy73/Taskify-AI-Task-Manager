@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>AI Generated Subtasks</h2>
+
+<div class="card p-4 shadow-sm mb-3">
+    <h4>{{ task.task }}</h4>
+</div>
+
+<ul class="list-group">
+{% for s in suggestions %}
+<li class="list-group-item">{{ s }}</li>
+{% endfor %}
+</ul>
+
+{% if error %}
+<div class="alert alert-danger mt-3">{{ error }}</div>
+{% endif %}
+
+<a href="/task/{{task.id}}" class="btn btn-secondary mt-3">Back</a>
+
+{% endblock %}

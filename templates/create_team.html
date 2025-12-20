@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Create Team</h2>
+
+<form method="POST" class="card p-4 shadow-sm">
+
+    <label class="form-label">How many members?</label>
+    <input type="number" name="member_count" min="1" max="15" class="form-control" required>
+
+    <button class="btn btn-success mt-3">Generate Team</button>
+</form>
+
+<a href="/lead/dashboard" class="btn btn-secondary mt-3">Back</a>
+
+{% endblock %}

@@ -8,7 +8,6 @@
 
 <div class="row g-4">
 
-    <!-- Total Tasks -->
     <div class="col-md-3">
         <div class="card shadow-sm p-3 text-center">
             <h5 class="text-muted">Total Tasks</h5>
@@ -16,7 +15,6 @@
         </div>
     </div>
 
-    <!-- To-Do -->
     <div class="col-md-3">
         <div class="card shadow-sm p-3 text-center">
             <h5 class="text-warning">To-Do</h5>
@@ -24,7 +22,6 @@
         </div>
     </div>
 
-    <!-- In Progress -->
     <div class="col-md-3">
         <div class="card shadow-sm p-3 text-center">
             <h5 class="text-primary">In Progress</h5>
@@ -32,18 +29,17 @@
         </div>
     </div>
 
-    <!-- Done -->
     <div class="col-md-3">
         <div class="card shadow-sm p-3 text-center">
             <h5 class="text-success">Done</h5>
             <h2 class="fw-bold text-success">{{ done }}</h2>
         </div>
     </div>
+
 </div>
 
+<div class="mt-4 d-flex flex-wrap gap-3">
 
-<!-- ACTION BUTTONS -->
-<div class="mt-4 d-flex gap-3">
     <a href="/add-task" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i> Add Task
     </a>
@@ -52,18 +48,19 @@
         <i class="bi bi-lightbulb"></i> AI Suggestions
     </a>
 
-    <a href="/delay-prediction" class="btn btn-info">
+    <a href="/delay-prediction" class="btn btn-info text-white">
         <i class="bi bi-clock-history"></i> Delay Prediction
     </a>
 
     <a href="/task-list" class="btn btn-dark">
         <i class="bi bi-list-check"></i> View All Tasks
     </a>
+
 </div>
 
 
-<!-- PIE CHART -->
-<div class="card p-4 mt-5 shadow-sm" style="width: 500px; margin:auto;">
+<div class="card p-4 mt-5 shadow-sm" style="max-width: 500px; margin:auto;">
+    <h5 class="text-center mb-3">Task Distribution</h5>
     <canvas id="taskChart"></canvas>
 </div>
 

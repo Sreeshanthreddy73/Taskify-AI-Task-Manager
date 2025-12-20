@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="mb-3">Team Lead Dashboard</h2>
+
+<a href="/lead/create-team" class="btn btn-primary mb-3">Create Team</a>
+<a href="/add-task" class="btn btn-success mb-3">Add Task</a>
+<a href="/ai-suggestions" class="btn btn-warning mb-3">AI Suggestions</a>
+<a href="/delay-prediction" class="btn btn-info mb-3">Delay Prediction</a>
+
+<h4 class="mt-4">Tasks</h4>
+
+<table class="table table-striped">
+<tr>
+    <th>Task</th>
+    <th>Assigned</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for t in tasks %}
+<tr>
+    <td>{{ t.task }}</td>
+    <td>{{ t.assigned_to }}</td>
+    <td>{{ t.status }}</td>
+    <td>
+        <a href="/task/{{t.id}}" class="btn btn-sm btn-dark">View</a>
+        <a href="/ai-subtasks/{{t.id}}" class="btn btn-sm btn-warning">AI Subtasks</a>
+        <a href="/update-status/{{t.id}}/Done" class="btn btn-sm btn-success">Mark Done</a>
+        <a href="/delete-task/{{t.id}}" class="btn btn-sm btn-danger">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

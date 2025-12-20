@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Join as Member</h2>
+
+<form method="POST" class="card p-4 shadow-sm">
+    <label class="form-label">Display Name</label>
+    <input name="display_name" class="form-control" required>
+
+    <label class="form-label mt-3">Username</label>
+    <input name="username" class="form-control" required>
+
+    <label class="form-label mt-3">Password</label>
+    <input type="password" name="password" class="form-control" required>
+
+    <label class="form-label mt-3">Join Code</label>
+    <input name="member_code" class="form-control" required>
+
+    <button class="btn btn-success mt-4">Join Team</button>
+</form>
+
+<a href="/member-login" class="btn btn-link mt-3">Already joined? Login</a>
+
+{% endblock %}

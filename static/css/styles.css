@@ -1,0 +1,166 @@
+/* ================================
+   MODERN ANIMATED PREMIUM UI (B)
+   Inspired by Linear + Notion + Monday
+   ================================ */
+
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* GLOBAL BACKGROUND */
+body {
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(27, 38, 59, 0.9) !important;
+    backdrop-filter: blur(10px);
+    padding: 15px !important;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: .5px;
+    transition: 0.3s ease;
+}
+
+.navbar-brand:hover {
+    opacity: .8;
+    transform: translateX(3px);
+}
+
+/* HEADINGS */
+h2 {
+    font-weight: 600;
+    animation: fadeDown .7s ease forwards;
+}
+
+/* CARDS */
+.card {
+    border-radius: 18px;
+    padding: 20px;
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    background: #ffffff;
+    transition: all .25s ease;
+    animation: fadeUp .7s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* BUTTONS */
+.btn {
+    border-radius: 12px !important;
+    padding: 10px 18px !important;
+    font-weight: 500;
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Animated Buttons */
+.btn-primary { background:#0066ff; border:none; }
+.btn-primary:hover { background:#0057e6; }
+
+.btn-warning { background:#ffcc33; border:none; }
+.btn-warning:hover { background:#e6b82e; }
+
+.btn-info { background:#00c2ff; border:none; }
+.btn-info:hover { background:#00aee6; }
+
+.btn-dark { background:#1b263b; border:none; }
+
+/* TABLE */
+.table {
+    border-radius: 14px;
+    overflow: hidden;
+    animation: fadeUp .8s ease;
+}
+
+.table thead {
+    background: #1b263b;
+    color: white;
+}
+
+/* ACTION ICON BUTTONS */
+.action-btn {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: .25s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.15);
+}
+
+.action-view { background: #e9f5ff; color:#007bff; }
+.action-start { background: #fff7d6; color:#d1a000; }
+.action-done { background: #d7ffd7; color:#1fa55a; }
+.action-delete { background: #ffe0e0; color:#ff3b3b; }
+
+/* PIE CHART BOX */
+.chart-container {
+    animation: fadeUp .9s ease;
+}
+
+/* INPUTS */
+input, textarea, select {
+    border-radius: 12px !important;
+    padding: 10px !important;
+    border: 2px solid #e3e6ea !important;
+    transition: .25s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #0066ff !important;
+    box-shadow: 0 0 8px rgba(0,102,255,0.25);
+}
+
+/* SUBTASK + AI BOXES */
+.list-group-item {
+    border-radius: 12px !important;
+    margin-bottom: 6px;
+    transition: .25s ease;
+}
+
+.list-group-item:hover {
+    background: #f4f7ff;
+    transform: translateX(3px);
+}
+
+/* BACK BUTTON */
+.btn-secondary {
+    background: #6c757d;
+    border: none !important;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

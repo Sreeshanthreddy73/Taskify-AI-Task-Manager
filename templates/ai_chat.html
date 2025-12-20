@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>AI Chat Assistant</h2>
+
+<form method="POST" class="card p-3 shadow-sm mb-3">
+    <textarea class="form-control" name="question" rows="3" placeholder="Ask anything..." required></textarea>
+    <button class="btn btn-warning mt-3">Ask AI</button>
+</form>
+
+{% if response %}
+<div class="alert alert-info">
+    <b>AI:</b> {{ response }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
+<a href="/member/dashboard" class="btn btn-secondary mt-3">Back</a>
+
+{% endblock %}

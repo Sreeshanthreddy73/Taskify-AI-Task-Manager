@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h2 class="mb-3"><i class="bi bi-chat-left-dots"></i> Task Explanation</h2>
-<a href="/task/{{ task.id }}" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left"></i> Back</a>
+<h2>Task Explanation</h2>
 
-<div class="card p-3 shadow-sm">
-  <h5>{{ task.task }}</h5>
-  <p class="mt-2">{{ explanation }}</p>
+<div class="card p-4 shadow-sm">
+    <h4>{{ task.task }}</h4>
+    <hr>
+    <p>{{ explanation }}</p>
+
+    {% if error %}
+    <div class="alert alert-danger mt-3">{{ error }}</div>
+    {% endif %}
 </div>
+
+<a href="/task/{{task.id}}" class="btn btn-secondary mt-3">Back</a>
 
 {% endblock %}
